@@ -1,0 +1,25 @@
+---
+// src/pages/login.astro
+---
+
+<html>
+  <head>
+    <title>Login</title>
+  </head>
+  <body>
+    <h1>🔐 Private Area</h1>
+    <p>Please log in using the Netlify Identity widget.</p>
+
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", user => {
+          if (!user) {
+            window.netlifyIdentity.open();
+          }
+        });
+        window.netlifyIdentity.init();
+      }
+    </script>
+  </body>
+</html>
